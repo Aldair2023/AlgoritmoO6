@@ -37,17 +37,13 @@ public class Principal extends javax.swing.JFrame {
         cmdVaciar = new javax.swing.JButton();
         cmdLlenar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtResultado = new javax.swing.JTextArea();
-        cmdMostrar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         txtCapActual = new javax.swing.JTextField();
         txtCapMaxima = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         cmdDefinir = new javax.swing.JButton();
-        cmdIgualar1 = new javax.swing.JButton();
+        cmdLimpiar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         txtCantidadTaza = new javax.swing.JTextField();
         txtTaza = new javax.swing.JTextField();
@@ -79,7 +75,7 @@ public class Principal extends javax.swing.JFrame {
         cmdLlenar.setText("Llenar");
         jPanel2.add(cmdLlenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 130, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 210, 130));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 210, 130));
 
         jLabel1.setFont(new java.awt.Font("Arial", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,25 +83,21 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setToolTipText("");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 154, -1));
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txtResultado.setEditable(false);
-        txtResultado.setColumns(20);
-        txtResultado.setRows(5);
-        jScrollPane1.setViewportView(txtResultado);
-
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 280, 130));
-
-        cmdMostrar.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        cmdMostrar.setText("Mostrar");
-        jPanel3.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 90, -1));
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 300, 200));
-
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Capacidad", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtCapActual.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCapActualKeyTyped(evt);
+            }
+        });
         jPanel4.add(txtCapActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 110, 30));
+
+        txtCapMaxima.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCapMaximaKeyTyped(evt);
+            }
+        });
         jPanel4.add(txtCapMaxima, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 110, 30));
 
         jLabel6.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
@@ -125,15 +117,27 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel4.add(cmdDefinir, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
-        cmdIgualar1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        cmdIgualar1.setText("Igualar");
-        jPanel4.add(cmdIgualar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 90, -1));
+        cmdLimpiar.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        cmdLimpiar.setText("Limpiar");
+        jPanel4.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 90, -1));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 260, 180));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Compra", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtCantidadTaza.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCantidadTazaKeyTyped(evt);
+            }
+        });
         jPanel5.add(txtCantidadTaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
+
+        txtTaza.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTazaKeyTyped(evt);
+            }
+        });
         jPanel5.add(txtTaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 30));
 
         jLabel2.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
@@ -146,9 +150,14 @@ public class Principal extends javax.swing.JFrame {
 
         cmdServir.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         cmdServir.setText("Servir");
+        cmdServir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdServirActionPerformed(evt);
+            }
+        });
         jPanel5.add(cmdServir, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 110, 30));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 240, 160));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 240, 160));
 
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -160,9 +169,15 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jPanel6.add(cmdAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
+
+        txtAgregar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAgregarKeyTyped(evt);
+            }
+        });
         jPanel6.add(txtAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 120, 40));
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 240, 80));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 240, 80));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/maxresdefault.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -246,6 +261,67 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmdAgregarActionPerformed
 
+    private void cmdServirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdServirActionPerformed
+        // TODO add your handling code here:
+        
+        int aux1, aux2;
+        
+        aux1 = Integer.parseInt(txtTaza.getText());
+        aux2 = Integer.parseInt(txtCantidadTaza.getText());
+        
+        if(x.getCantidad() == 0){
+            JOptionPane.showMessageDialog(this, "no se puede servir por que no hay cafe");
+        }else if(x.getCantidad() < aux1*aux2){
+            JOptionPane.showMessageDialog(this, "se sirvienron:" +x.getCantidad()+ "de cafe");
+        }
+        
+    }//GEN-LAST:event_cmdServirActionPerformed
+
+    private void txtCapActualKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCapActualKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCapActualKeyTyped
+
+    private void txtCapMaximaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCapMaximaKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != '.'){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCapMaximaKeyTyped
+
+    private void txtAgregarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgregarKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != '.'){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtAgregarKeyTyped
+
+    private void txtTazaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTazaKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != '.'){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtTazaKeyTyped
+
+    private void txtCantidadTazaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadTazaKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != '.'){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCantidadTazaKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -284,9 +360,8 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cmdAgregar;
     private javax.swing.JButton cmdDefinir;
-    private javax.swing.JButton cmdIgualar1;
+    private javax.swing.JButton cmdLimpiar;
     private javax.swing.JButton cmdLlenar;
-    private javax.swing.JButton cmdMostrar;
     private javax.swing.JButton cmdServir;
     private javax.swing.JButton cmdVaciar;
     private javax.swing.JLabel jLabel1;
@@ -297,16 +372,13 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtAgregar;
     private javax.swing.JTextField txtCantidadTaza;
     private javax.swing.JTextField txtCapActual;
     private javax.swing.JTextField txtCapMaxima;
-    private javax.swing.JTextArea txtResultado;
     private javax.swing.JTextField txtTaza;
     // End of variables declaration//GEN-END:variables
 }
