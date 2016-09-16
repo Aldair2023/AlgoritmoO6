@@ -27,17 +27,101 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        cmdServir = new javax.swing.JButton();
+        cmdVaciar = new javax.swing.JButton();
+        cmdLlenar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtResultado = new javax.swing.JTextArea();
+        cmdIgualar = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        txtCafe = new javax.swing.JTextField();
+        cmdAgregar = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        txtCantidadTaza = new javax.swing.JTextField();
+        txtTaza = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Funciones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cmdServir.setText("Servir");
+        jPanel2.add(cmdServir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 130, 40));
+
+        cmdVaciar.setText("Vaciar");
+        jPanel2.add(cmdVaciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 130, 40));
+
+        cmdLlenar.setText("Llenar");
+        jPanel2.add(cmdLlenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 130, 40));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 210, 210));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 3, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Cafetera");
+        jLabel1.setToolTipText("");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 154, -1));
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtResultado.setColumns(20);
+        txtResultado.setRows(5);
+        jScrollPane1.setViewportView(txtResultado);
+
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 280, 120));
+
+        cmdIgualar.setText("Igualar");
+        jPanel3.add(cmdIgualar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 130, 40));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 300, 200));
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Inicio", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel4.add(txtCafe, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 100, 40));
+
+        cmdAgregar.setText("Agregar");
+        jPanel4.add(cmdAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 260, 120));
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Compra", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel5.add(txtCantidadTaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
+        jPanel5.add(txtTaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 30));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        jLabel2.setText("Taza(s)");
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 80, 30));
+
+        jLabel4.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        jLabel4.setText("Cantidad");
+        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 80, 30));
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 240, 120));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/maxresdefault.jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 510));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 602, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 431, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -79,5 +163,24 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdAgregar;
+    private javax.swing.JButton cmdIgualar;
+    private javax.swing.JButton cmdLlenar;
+    private javax.swing.JButton cmdServir;
+    private javax.swing.JButton cmdVaciar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtCafe;
+    private javax.swing.JTextField txtCantidadTaza;
+    private javax.swing.JTextArea txtResultado;
+    private javax.swing.JTextField txtTaza;
     // End of variables declaration//GEN-END:variables
 }
