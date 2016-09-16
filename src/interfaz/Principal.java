@@ -5,6 +5,9 @@
  */
 package interfaz;
 
+import clase.Cafeteria;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aldair
@@ -14,6 +17,8 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
+    
+    Cafeteria x;
     public Principal() {
         initComponents();
     }
@@ -29,22 +34,29 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        cmdServir = new javax.swing.JButton();
         cmdVaciar = new javax.swing.JButton();
         cmdLlenar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
-        cmdIgualar = new javax.swing.JButton();
+        cmdMostrar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        txtCafe = new javax.swing.JTextField();
-        cmdAgregar = new javax.swing.JButton();
+        txtCapActual = new javax.swing.JTextField();
+        txtCapMaxima = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        cmdDefinir = new javax.swing.JButton();
+        cmdIgualar1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         txtCantidadTaza = new javax.swing.JTextField();
         txtTaza = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        cmdServir = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        cmdAgregar = new javax.swing.JButton();
+        txtAgregar = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,16 +66,20 @@ public class Principal extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Funciones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cmdServir.setText("Servir");
-        jPanel2.add(cmdServir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 130, 40));
-
+        cmdVaciar.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         cmdVaciar.setText("Vaciar");
-        jPanel2.add(cmdVaciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 130, 40));
+        cmdVaciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdVaciarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(cmdVaciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 130, 40));
 
+        cmdLlenar.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         cmdLlenar.setText("Llenar");
-        jPanel2.add(cmdLlenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 130, 40));
+        jPanel2.add(cmdLlenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 130, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 210, 210));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 210, 130));
 
         jLabel1.setFont(new java.awt.Font("Arial", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -74,25 +90,46 @@ public class Principal extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtResultado.setEditable(false);
         txtResultado.setColumns(20);
         txtResultado.setRows(5);
         jScrollPane1.setViewportView(txtResultado);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 280, 120));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 280, 130));
 
-        cmdIgualar.setText("Igualar");
-        jPanel3.add(cmdIgualar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 130, 40));
+        cmdMostrar.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        cmdMostrar.setText("Mostrar");
+        jPanel3.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 90, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 300, 200));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 300, 200));
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Inicio", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Capacidad", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel4.add(txtCafe, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 100, 40));
+        jPanel4.add(txtCapActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 110, 30));
+        jPanel4.add(txtCapMaxima, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 110, 30));
 
-        cmdAgregar.setText("Agregar");
-        jPanel4.add(cmdAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
+        jLabel6.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        jLabel6.setText("Cap Actual");
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 90, 30));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 260, 120));
+        jLabel5.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        jLabel5.setText("Cap Maxima");
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 90, 30));
+
+        cmdDefinir.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        cmdDefinir.setText("Definir");
+        cmdDefinir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdDefinirActionPerformed(evt);
+            }
+        });
+        jPanel4.add(cmdDefinir, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+
+        cmdIgualar1.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        cmdIgualar1.setText("Igualar");
+        jPanel4.add(cmdIgualar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 90, -1));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 260, 180));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Compra", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -107,7 +144,25 @@ public class Principal extends javax.swing.JFrame {
         jLabel4.setText("Cantidad");
         jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 80, 30));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 240, 120));
+        cmdServir.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        cmdServir.setText("Servir");
+        jPanel5.add(cmdServir, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 110, 30));
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 240, 160));
+
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cmdAgregar.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        cmdAgregar.setText("Agregar");
+        cmdAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdAgregarActionPerformed(evt);
+            }
+        });
+        jPanel6.add(cmdAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
+        jPanel6.add(txtAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 120, 40));
+
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 240, 80));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/maxresdefault.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -126,6 +181,70 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdDefinirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdDefinirActionPerformed
+        // TODO add your handling code here:
+        
+        try{
+        double capA, capM;
+        
+        if(txtCapActual.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this,"por favor indique la capacidad actual de su cafetera", "ERROR",JOptionPane.WARNING_MESSAGE);
+        }else if(txtCapMaxima.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this,"por favor indique la capacidad maxima de su cafetera", "ERROR",JOptionPane.WARNING_MESSAGE);
+        }else{
+        
+        capA = Double.parseDouble(txtCapActual.getText());
+        capM = Double.parseDouble(txtCapMaxima.getText());
+        
+        
+        
+        x = new Cafeteria(capA, capM);
+        JOptionPane.showMessageDialog(this, "Cafe agregado");
+        txtCapActual.setText("");
+        txtCapMaxima.setText("");
+        txtCapActual.setEnabled(false);
+        txtCapMaxima.setEnabled(false);
+        
+        
+        }
+        
+        }catch(NumberFormatException k){
+            JOptionPane.showMessageDialog(this,"Ingrese numeros validos", "ERROR",JOptionPane.WARNING_MESSAGE);
+                   
+        
+        }
+        
+    }//GEN-LAST:event_cmdDefinirActionPerformed
+
+    private void cmdVaciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdVaciarActionPerformed
+        // TODO add your handling code here:
+        
+        x.vaciar();
+        JOptionPane.showMessageDialog(this,"cafetera vaciada");
+        
+    }//GEN-LAST:event_cmdVaciarActionPerformed
+
+    private void cmdAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAgregarActionPerformed
+        // TODO add your handling code here:
+        
+        try{
+            
+        int aux;
+        
+        aux = Integer.parseInt(txtAgregar.getText());
+        if(x.getCantidad() == x.getCapacidadM()){
+            JOptionPane.showMessageDialog(this,"la cafetera esta a su maxima capacidad");
+        }else{
+            x.agregar(aux);
+            JOptionPane.showMessageDialog(this,"la cafetera tiene ahora: "+x.getCantidad());
+            
+        }
+            
+        }catch(NumberFormatException k ){
+            JOptionPane.showMessageDialog(this,"por favor ingrese un numero valida","ERROR",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_cmdAgregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,22 +283,29 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cmdAgregar;
-    private javax.swing.JButton cmdIgualar;
+    private javax.swing.JButton cmdDefinir;
+    private javax.swing.JButton cmdIgualar1;
     private javax.swing.JButton cmdLlenar;
+    private javax.swing.JButton cmdMostrar;
     private javax.swing.JButton cmdServir;
     private javax.swing.JButton cmdVaciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txtCafe;
+    private javax.swing.JTextField txtAgregar;
     private javax.swing.JTextField txtCantidadTaza;
+    private javax.swing.JTextField txtCapActual;
+    private javax.swing.JTextField txtCapMaxima;
     private javax.swing.JTextArea txtResultado;
     private javax.swing.JTextField txtTaza;
     // End of variables declaration//GEN-END:variables
